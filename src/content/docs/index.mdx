@@ -1,0 +1,100 @@
+---
+title: IPKit Documentation
+description: Global IP intelligence — trademarks, designs, and patents across 10 jurisdictions — delivered through your AI assistant.
+template: splash
+hero:
+  tagline: Search trademarks, designs, and patents across 10 jurisdictions. Run clearance analysis, assess distinctiveness, and monitor your portfolio — all from your AI assistant.
+  actions:
+    - text: Get Started
+      link: /getting-started/founders/
+      icon: right-arrow
+    - text: Tool Reference
+      link: /reference/tools/trademark/trademark-search/
+      icon: open-book
+      variant: minimal
+    - text: View on GitHub
+      link: https://github.com/ip-kit/core
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Choose Your Path
+
+<CardGrid>
+  <LinkCard
+    title="For Founders"
+    description="Validate your brand name across key markets in 5 minutes. No legal degree required."
+    href="/getting-started/founders/"
+  />
+  <LinkCard
+    title="For IP Attorneys"
+    description="Multi-jurisdiction clearance workflows with normalized results across 10 offices."
+    href="/getting-started/attorneys/"
+  />
+  <LinkCard
+    title="For Developers"
+    description="Use IPKit as your IP data layer. Architecture, API reference, and extension guide."
+    href="/getting-started/developers/"
+  />
+  <LinkCard
+    title="For Platform Integrators"
+    description="Embed IPKit into your product via HTTP transport with API key authentication."
+    href="/getting-started/integrators/"
+  />
+</CardGrid>
+
+## What IPKit Does
+
+<CardGrid>
+  <Card title="Trademark Search" icon="magnifier">
+    Search by name, owner, number, or fuzzy similarity across US, EU, AU, NZ, WIPO, GB, CA, JP, CN.
+  </Card>
+  <Card title="Clearance Analysis" icon="approve-check-circle">
+    Comprehensive conflict search with similarity scoring, risk assessment, and filing recommendations.
+  </Card>
+  <Card title="Design & Patent Search" icon="document">
+    Search EU and AU design registrations. Search AU and EPO patents with 130M+ document coverage.
+  </Card>
+  <Card title="Portfolio Monitoring" icon="warning">
+    Watch trademarks for status changes, similar filings, and approaching deadlines with webhook delivery.
+  </Card>
+</CardGrid>
+
+## Supported Jurisdictions
+
+| Authority | Code | Trademarks | Designs | Patents |
+|-----------|------|------------|---------|---------|
+| USPTO (United States) | US | Full search | — | — |
+| EUIPO (European Union) | EU | Full search | Full search | — |
+| IP Australia | AU | Full search | Full search | Full search |
+| IPONZ (New Zealand) | NZ | Full search | — | — |
+| WIPO (Madrid System) | WIPO | Full search | — | — |
+| EPO (European Patent Office) | EP | — | — | Full search |
+| UKIPO (United Kingdom) | GB | Number lookup | — | — |
+| CIPO (Canada) | CA | Number lookup | — | — |
+| JPO (Japan) | JP | Number lookup | — | — |
+| CNIPA (China) | CN | Number lookup | — | — |
+
+## Quick Install
+
+Add IPKit to Claude Desktop in one step:
+
+```json
+// ~/Library/Application Support/Claude/claude_desktop_config.json
+{
+  "mcpServers": {
+    "ipkit": {
+      "command": "npx",
+      "args": [
+        "-y", "mcp-remote",
+        "https://ipkit.fly.dev/mcp",
+        "--header", "Authorization:Bearer YOUR_API_KEY"
+      ]
+    }
+  }
+}
+```
+
+Then restart Claude Desktop and ask: *"Search for trademarks similar to 'CloudBooks' in the US and EU."*
