@@ -298,7 +298,7 @@ When searching for prior art (existing patents relevant to an invention):
 
 ## Related tools
 
-- [`au_patent_status`](../reference/tools/patent/) -- full details for an AU patent
-- [`ep_patent_status`](../reference/tools/patent/) -- full details for an EP patent
-- [`patent_family_search`](../reference/tools/patent/) -- find worldwide family members
-- [`au_design_search`](../reference/tools/design/) -- cross-reference with design registrations
+- [`au_patent_status`](/reference/tools/patent/au-patent-status/) -- full details for an AU patent
+- [`ep_patent_status`](/reference/tools/patent/ep-patent-status/) -- full details for an EP patent
+- [`patent_family_search`](/reference/tools/patent/patent-family-search/) -- find worldwide family members
+- [`au_design_search`](/reference/tools/design/au-design-search/) -- cross-reference with design registrations

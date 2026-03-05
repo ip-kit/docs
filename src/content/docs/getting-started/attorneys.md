@@ -1,9 +1,9 @@
 ---
 title: "Multi-Jurisdiction Clearance Workflow"
-description: "A professional clearance workflow for IP attorneys and paralegals using IPKit across 10 trademark offices."
+description: "A professional clearance workflow for IP attorneys and paralegals using IPKit across 9 trademark offices."
 ---
 
-IPKit provides normalized trademark search results across 10 jurisdictions through a single interface. It integrates directly with Claude Desktop or ChatGPT, giving you clearance search, Nice class analysis, goods and services drafting, and filing readiness assessment without switching between individual trademark office websites.
+IPKit provides normalized trademark search results across 9 jurisdictions through a single interface, with additional patent coverage via EPO and Lens.org. It integrates directly with Claude Desktop or ChatGPT, giving you clearance search, Nice class analysis, goods and services drafting, and filing readiness assessment without switching between individual trademark office websites.
 
 This guide walks through a complete clearance workflow suitable for professional use.
 

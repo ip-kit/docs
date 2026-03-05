@@ -152,7 +152,7 @@ An IP attorney can evaluate whether these conflicts present real opposition risk
 ### High or critical risk
 Strong conflicts that likely prevent registration. When you see this:
 - Consider modifying the mark (different spelling, added word, different root)
-- Use [`distinctiveness_hints`](../reference/tools/trademark/) to evaluate alternative marks
+- Use [`distinctiveness_hints`](/reference/tools/nice-classification/distinctiveness-hints/) to evaluate alternative marks
 - Focus on jurisdictions where conflicts are absent
 
 ## Optional: G&S validation
@@ -201,7 +201,7 @@ For streaming UIs or large conflict sets, set `compact: true` to receive only th
 
 ## Related tools
 
-- [`trademark_search`](../reference/tools/trademark/) -- direct search without conflict analysis
-- [`distinctiveness_hints`](../reference/tools/trademark/) -- analyze mark strength before clearance
-- [`suggest_nice_classes`](../reference/tools/nice-classification/) -- identify classes from a business description
-- [`validate_gs_terms`](../reference/tools/goods-services/) -- check G&S terms against the Harmonised Database
+- [`trademark_search`](/reference/tools/trademark/trademark-search/) -- direct search without conflict analysis
+- [`distinctiveness_hints`](/reference/tools/nice-classification/distinctiveness-hints/) -- analyze mark strength before clearance
+- [`suggest_nice_classes`](/reference/tools/nice-classification/suggest-nice-classes/) -- identify classes from a business description
+- [`validate_gs_terms`](/reference/tools/goods-services/validate-gs-terms/) -- check G&S terms against the Harmonised Database

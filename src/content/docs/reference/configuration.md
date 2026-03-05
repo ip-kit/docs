@@ -60,6 +60,12 @@ IPKit is configured entirely through environment variables. In local development
 | `EPO_CONSUMER_KEY` | string | *(none)* | OAuth2 consumer key for EPO Open Patent Services |
 | `EPO_CONSUMER_SECRET` | string | *(none)* | OAuth2 consumer secret for EPO Open Patent Services |
 
+### Lens.org
+
+| Variable | Type | Default | Description |
+|----------|------|---------|-------------|
+| `LENS_API_TOKEN` | string | *(none)* | Bearer token for the Lens.org Patent API |
+
 ## Provider Toggles
 
 Each provider can be individually enabled or disabled. All providers are enabled by default. Set to `false` to disable.
@@ -76,6 +82,7 @@ Each provider can be individually enabled or disabled. All providers are enabled
 | `ENABLE_JPO` | boolean | `true` | Enable/disable JPO provider |
 | `ENABLE_CNIPA` | boolean | `true` | Enable/disable CNIPA provider |
 | `ENABLE_EPO` | boolean | `true` | Enable/disable EPO provider |
+| `ENABLE_LENS` | boolean | `true` | Enable/disable Lens.org provider |
 
 ## Provider Environments
 
@@ -100,6 +107,7 @@ Per-provider rate limits in requests per minute. These are self-imposed limits t
 | `JPO_RATE_LIMIT` | number | `30` | JPO requests per minute |
 | `CNIPA_RATE_LIMIT` | number | `30` | CNIPA requests per minute |
 | `EPO_RATE_LIMIT` | number | `30` | EPO requests per minute |
+| `LENS_RATE_LIMIT` | number | `50` | Lens.org requests per minute |
 
 ## Timeouts
 

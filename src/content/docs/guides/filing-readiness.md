@@ -236,10 +236,10 @@ The tool uses harmonized translations from the EUIPO database, ensuring consiste
 
 ## Related tools
 
-- [`suggest_nice_classes`](../reference/tools/nice-classification/) -- auto-recommend classes from a description
-- [`nice_class_lookup`](../reference/tools/nice-classification/) -- browse classes 1-45 with examples
-- [`distinctiveness_hints`](../reference/tools/trademark/) -- analyze mark strength
-- [`generate_gs_specification`](../reference/tools/goods-services/) -- produce filing-ready specifications
-- [`validate_gs_terms`](../reference/tools/goods-services/) -- check terms against the Harmonised Database
-- [`translate_gs_terms`](../reference/tools/goods-services/) -- translate across 23 EU languages
-- [`trademark_clearance`](../reference/tools/trademark/) -- comprehensive conflict analysis
+- [`suggest_nice_classes`](/reference/tools/nice-classification/suggest-nice-classes/) -- auto-recommend classes from a description
+- [`nice_class_lookup`](/reference/tools/nice-classification/nice-class-lookup/) -- browse classes 1-45 with examples
+- [`distinctiveness_hints`](/reference/tools/nice-classification/distinctiveness-hints/) -- analyze mark strength
+- [`generate_gs_specification`](/reference/tools/goods-services/generate-gs-specification/) -- produce filing-ready specifications
+- [`validate_gs_terms`](/reference/tools/goods-services/validate-gs-terms/) -- check terms against the Harmonised Database
+- [`translate_gs_terms`](/reference/tools/goods-services/translate-gs-terms/) -- translate across 23 EU languages
+- [`trademark_clearance`](/reference/tools/trademark/trademark-clearance/) -- comprehensive conflict analysis

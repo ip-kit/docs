@@ -160,6 +160,6 @@ See the [Filing Readiness guide](../guides/filing-readiness/) for the complete w
 
 ## Related tools
 
-- [`trademark_clearance`](../reference/tools/trademark/) -- check for conflicts with existing marks
-- [`suggest_nice_classes`](../reference/tools/nice-classification/) -- identify classes from a business description
-- [`trademark_search`](../reference/tools/trademark/) -- search existing registrations for comparison
+- [`trademark_clearance`](/reference/tools/trademark/trademark-clearance/) -- check for conflicts with existing marks
+- [`suggest_nice_classes`](/reference/tools/nice-classification/suggest-nice-classes/) -- identify classes from a business description
+- [`trademark_search`](/reference/tools/trademark/trademark-search/) -- search existing registrations for comparison

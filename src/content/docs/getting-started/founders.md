@@ -3,7 +3,7 @@ title: "Validate Your Brand Name in 5 Minutes"
 description: "A quick-start guide for founders to search trademarks, run clearance analysis, and assess brand name risk using IPKit."
 ---
 
-IPKit is an AI-powered IP intelligence tool that searches trademark registries across 10 jurisdictions worldwide. It connects directly to your AI assistant (Claude Desktop or ChatGPT), so you can check whether your proposed brand name is clear to use -- without logging into separate trademark databases or hiring a search firm upfront.
+IPKit is an AI-powered IP intelligence tool that searches trademark registries across 9 jurisdictions worldwide, plus patent databases via EPO and Lens.org. It connects directly to your AI assistant (Claude Desktop or ChatGPT), so you can check whether your proposed brand name is clear to use -- without logging into separate trademark databases or hiring a search firm upfront.
 
 ## Install IPKit
 

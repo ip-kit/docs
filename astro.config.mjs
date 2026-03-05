@@ -11,16 +11,7 @@ export default defineConfig({
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/ip-kit/core' },
 			],
 			customCss: ['./src/styles/custom.css'],
-			head: [
-				{
-					tag: 'meta',
-					attrs: {
-						property: 'og:image',
-						content: '/og-image.png',
-					},
-				},
-			],
-			sidebar: [
+sidebar: [
 				{
 					label: 'Getting Started',
 					items: [

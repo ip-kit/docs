@@ -282,12 +282,12 @@ IPKit also includes a `watch-setup` MCP prompt that guides AI assistants through
 
 ## Related tools
 
-- [`create_watch`](../reference/tools/monitoring/) -- set up a new monitoring watch
-- [`list_watches`](../reference/tools/monitoring/) -- list all watches
-- [`manage_watch`](../reference/tools/monitoring/) -- pause, resume, or delete a watch
-- [`get_watch_events`](../reference/tools/monitoring/) -- retrieve events
-- [`acknowledge_events`](../reference/tools/monitoring/) -- mark events as read
-- [`register_webhook`](../reference/tools/monitoring/) -- register a webhook endpoint
-- [`manage_webhook`](../reference/tools/monitoring/) -- enable, disable, delete, or test a webhook
-- [`get_delivery_log`](../reference/tools/monitoring/) -- view delivery history
-- [`portfolio_analytics`](../reference/tools/monitoring/) -- aggregate health overview
+- [`create_watch`](/reference/tools/monitoring/create-watch/) -- set up a new monitoring watch
+- [`list_watches`](/reference/tools/monitoring/list-watches/) -- list all watches
+- [`manage_watch`](/reference/tools/monitoring/manage-watch/) -- pause, resume, or delete a watch
+- [`get_watch_events`](/reference/tools/monitoring/get-watch-events/) -- retrieve events
+- [`acknowledge_events`](/reference/tools/monitoring/acknowledge-events/) -- mark events as read
+- [`register_webhook`](/reference/tools/monitoring/register-webhook/) -- register a webhook endpoint
+- [`manage_webhook`](/reference/tools/monitoring/manage-webhook/) -- enable, disable, delete, or test a webhook
+- [`get_delivery_log`](/reference/tools/monitoring/get-delivery-log/) -- view delivery history
+- [`portfolio_analytics`](/reference/tools/monitoring/portfolio-analytics/) -- aggregate health overview

@@ -81,7 +81,7 @@ The EUIPO Designs Search API returns applicant identifiers but not always applic
 }
 ```
 
-This calls the EUIPO Persons API in the background to resolve each unique identifier. It adds latency but provides complete applicant information. For a dedicated person lookup, use [`eu_person_lookup`](../reference/tools/person/).
+This calls the EUIPO Persons API in the background to resolve each unique identifier. It adds latency but provides complete applicant information. For a dedicated person lookup, use [`eu_person_lookup`](/reference/tools/person/eu-person-lookup/).
 
 ### Status filters
 
@@ -238,7 +238,7 @@ Use `eu_applicant_portfolio` to see all IP filings (trademarks and designs) by a
 
 ## Related tools
 
-- [`eu_design_status`](../reference/tools/design/) -- full details for an EU design
-- [`au_design_status`](../reference/tools/design/) -- full details for an AU design
-- [`eu_person_lookup`](../reference/tools/person/) -- look up applicant/representative details
-- [`eu_applicant_portfolio`](../reference/tools/person/) -- browse an applicant's full IP portfolio
+- [`eu_design_status`](/reference/tools/design/eu-design-status/) -- full details for an EU design
+- [`au_design_status`](/reference/tools/design/au-design-status/) -- full details for an AU design
+- [`eu_person_lookup`](/reference/tools/person/eu-person-lookup/) -- look up applicant/representative details
+- [`eu_applicant_portfolio`](/reference/tools/person/eu-applicant-portfolio/) -- browse an applicant's full IP portfolio

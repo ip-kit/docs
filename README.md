@@ -1,49 +1,43 @@
-# Starlight Starter Kit: Basics
+# IPKit Documentation
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Documentation site for [IPKit](https://github.com/ip-kit/core) — global IP intelligence for trademarks, designs, and patents.
 
-```
-npm create astro@latest -- --template starlight
-```
+**Live site:** [docs.ipkit.ai](https://docs.ipkit.ai)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-## 🚀 Project Structure
+- [Starlight](https://starlight.astro.build/) (Astro) — static documentation framework
+- [Pagefind](https://pagefind.app/) — client-side search (built-in with Starlight)
+- [Vercel](https://vercel.com/) — hosting and deployment
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## Development
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+```bash
+npm install
+npm run dev       # Start dev server at localhost:4321
+npm run build     # Build static site to dist/
+npm run preview   # Preview production build locally
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+## Structure
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+```
+src/content/docs/
+├── getting-started/    # Audience-specific quickstart guides
+├── guides/             # Topical how-to guides
+├── reference/
+│   ├── tools/          # One page per MCP tool (32 tools)
+│   ├── providers.md    # Jurisdiction capabilities matrix
+│   ├── configuration.md # Environment variables reference
+│   ├── error-codes.md  # Error code reference
+│   └── schemas.md      # Data type reference
+└── architecture/       # System design and contributor guides
+```
 
-Static assets, like favicons, can be placed in the `public/` directory.
+## Contributing
 
-## 🧞 Commands
+Content is written in Markdown (`.md`) or MDX (`.mdx`) in `src/content/docs/`. The directory structure maps directly to URL paths. See the [Astro docs](https://docs.astro.build/) and [Starlight docs](https://starlight.astro.build/) for framework reference.
 
-All commands are run from the root of the project, from a terminal:
+## License
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+MIT

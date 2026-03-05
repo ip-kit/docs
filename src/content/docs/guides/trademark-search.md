@@ -108,7 +108,7 @@ Add `niceClasses` to limit results to specific goods/services categories:
 }
 ```
 
-This returns only marks registered in class 9 (software/electronics) or class 42 (technology services). Use [`nice_class_lookup`](../reference/tools/nice-classification/) to explore class definitions.
+This returns only marks registered in class 9 (software/electronics) or class 42 (technology services). Use [`nice_class_lookup`](/reference/tools/nice-classification/nice-class-lookup/) to explore class definitions.
 
 ## Owner search
 
@@ -199,6 +199,6 @@ The cursor is an opaque token -- pass it exactly as received. Pagination cursors
 
 ## Related tools
 
-- [`trademark_status`](../reference/tools/trademark/) -- get full details for a specific trademark
-- [`trademark_clearance`](../reference/tools/trademark/) -- comprehensive conflict analysis
-- [`nice_class_lookup`](../reference/tools/nice-classification/) -- browse Nice Classification classes 1-45
+- [`trademark_status`](/reference/tools/trademark/trademark-status/) -- get full details for a specific trademark
+- [`trademark_clearance`](/reference/tools/trademark/trademark-clearance/) -- comprehensive conflict analysis
+- [`nice_class_lookup`](/reference/tools/nice-classification/nice-class-lookup/) -- browse Nice Classification classes 1-45

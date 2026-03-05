@@ -1,28 +1,28 @@
 ---
 title: "Provider Reference"
-description: "Capabilities matrix and configuration details for all 10 IP office providers supported by IPKit."
+description: "Capabilities matrix and configuration details for all 11 providers supported by IPKit."
 ---
 
-IPKit connects to 10 intellectual property offices worldwide. Each provider implements access to a specific jurisdiction's trademark, design, or patent data. This page documents the capabilities, authentication requirements, and configuration for each provider.
+IPKit connects to 11 providers -- 10 intellectual property offices plus the Lens.org cross-jurisdiction patent aggregator. Each provider implements access to trademark, design, or patent data. This page documents the capabilities, authentication requirements, and configuration for each provider.
 
 ## Capabilities Matrix
 
-| Feature | US | EU | AU | NZ | WIPO | GB | CA | JP | CN | EP |
-|---------|:--:|:--:|:--:|:--:|:----:|:--:|:--:|:--:|:--:|:--:|
-| **API type** | REST | REST | REST | REST | REST | Scraping | Scraping | Scraping | Scraping | REST |
-| **Auth method** | API key | OAuth2 | OAuth2 | API key | None | None | None | None | None | OAuth2 |
-| **Trademark search** | Full | Full | Full | Full | Full | Number only | Number only | Number only | Number only | -- |
-| **Design search** | -- | Full | Full | -- | -- | -- | -- | -- | -- | -- |
-| **Patent search** | -- | -- | Full | -- | -- | -- | -- | -- | -- | Full |
-| **Name search** | Yes | Yes | Yes | Yes | Yes | -- | -- | -- | -- | -- |
-| **Owner search** | Yes | Yes | Yes | Yes | Yes | -- | -- | -- | -- | -- |
-| **Number search** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | -- |
-| **Fuzzy search** | Yes | Yes | Yes | Yes | -- | -- | -- | -- | -- | -- |
-| **Status details** | Full | Full | Full | Full | Full | Basic | Basic | Basic | Basic | Full |
-| **Nice class filtering** | Yes | Yes | Yes | Yes | Yes | -- | -- | -- | -- | -- |
-| **G&S validation** | -- | Yes | -- | -- | -- | -- | -- | -- | -- | -- |
-| **Rate limit default** | 60/min | 60/min | 500/min | 60/min | 30/min | 30/min | 30/min | 30/min | 30/min | 30/min |
-| **Credentials required** | Yes | Yes | Yes | Yes | No | No | No | No | No | Yes |
+| Feature | US | EU | AU | NZ | WIPO | GB | CA | JP | CN | EP | LENS |
+|---------|:--:|:--:|:--:|:--:|:----:|:--:|:--:|:--:|:--:|:--:|:----:|
+| **API type** | REST | REST | REST | REST | REST | Scraping | Scraping | Scraping | Scraping | REST | REST |
+| **Auth method** | API key | OAuth2 | OAuth2 | API key | None | None | None | None | None | OAuth2 | Bearer token |
+| **Trademark search** | Full | Full | Full | Full | Full | Number only | Number only | Number only | Number only | -- | -- |
+| **Design search** | -- | Full | Full | -- | -- | -- | -- | -- | -- | -- | -- |
+| **Patent search** | -- | -- | Full | -- | -- | -- | -- | -- | -- | Full | Full |
+| **Name search** | Yes | Yes | Yes | Yes | Yes | -- | -- | -- | -- | -- | -- |
+| **Owner search** | Yes | Yes | Yes | Yes | Yes | -- | -- | -- | -- | -- | -- |
+| **Number search** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | -- | -- |
+| **Fuzzy search** | Yes | Yes | Yes | Yes | -- | -- | -- | -- | -- | -- | -- |
+| **Status details** | Full | Full | Full | Full | Full | Basic | Basic | Basic | Basic | Full | Full |
+| **Nice class filtering** | Yes | Yes | Yes | Yes | Yes | -- | -- | -- | -- | -- | -- |
+| **G&S validation** | -- | Yes | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| **Rate limit default** | 60/min | 60/min | 500/min | 60/min | 30/min | 30/min | 30/min | 30/min | 30/min | 30/min | 50/min |
+| **Credentials required** | Yes | Yes | Yes | Yes | No | No | No | No | No | Yes | Yes |
 
 **Legend:**
 - **Full** -- complete search and detail retrieval via structured API
@@ -316,3 +316,39 @@ None. CNIPA data is accessed via web scraping.
 - The API returns XML-derived JSON with hyphenated keys and `{ $: "value" }` text wrappers. IPKit normalizes these into standard JSON.
 - Default rate limit is 30 requests/min, adjustable via `EPO_RATE_LIMIT`.
 - EPO is a patent-only provider. It does not provide trademark or design search.
+
+---
+
+## Lens.org
+
+**Full name:** Lens.org -- Patent & Scholarly Search
+**Website:** [https://www.lens.org](https://www.lens.org)
+**API documentation:** [Lens.org API Docs](https://docs.api.lens.org/)
+
+### Required Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `LENS_API_TOKEN` | Bearer API token from the Lens.org developer portal |
+
+### Optional Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `ENABLE_LENS` | Set to `false` to disable Lens.org (default: `true`) |
+| `LENS_RATE_LIMIT` | Requests per minute (default: `50`) |
+
+### Capabilities
+
+- Patent search across 130M+ documents covering 100+ jurisdictions
+- Full patent details including bibliographic data, classification, and legal status
+- IPC and CPC classification
+- **Scholarly-patent citation linkage** via the `lens_prior_art` tool -- a unique capability that connects patent documents to the scholarly articles that cite them or are cited by them. No other IPKit provider offers this.
+
+### Notes
+
+- Lens.org uses a static Bearer token for authentication (not OAuth). The token is passed via the `Authorization: Bearer <token>` header on every request.
+- Unlike EPO which returns XML-derived JSON, Lens.org returns clean JSON natively via a POST-based query interface with Elasticsearch-style boolean query syntax.
+- The `lens_prior_art` tool is Lens-specific and provides citation data (both references cited and cited-by) along with links to scholarly articles, making it useful for prior art analysis and freedom-to-operate research.
+- Default rate limit is 50 requests/min, adjustable via `LENS_RATE_LIMIT`.
+- Lens.org is a patent-only provider. It does not provide trademark or design search.
