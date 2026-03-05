@@ -40,4 +40,4 @@ Content is written in Markdown (`.md`) or MDX (`.mdx`) in `src/content/docs/`. T
 
 ## License
 
-MIT
+Proprietary. Copyright (c) 2026 IPKit. All rights reserved.
