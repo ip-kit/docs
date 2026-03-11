@@ -4,8 +4,10 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://docs.ipkit.ai',
 	integrations: [
 		starlight({
+			lastUpdated: true,
 			title: 'IPKit',
 			logo: {
 				src: './public/favicon.svg',

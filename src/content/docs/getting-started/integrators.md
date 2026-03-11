@@ -75,6 +75,10 @@ If your users run Claude Desktop, they can connect to your self-hosted instance 
 
 Replace the URL with your self-hosted endpoint if applicable.
 
+:::caution
+Never expose API keys in client-side code, browser requests, or public repositories. API keys should only be used in server-to-server communication. For client-facing applications, proxy requests through your own backend.
+:::
+
 ## API Key Authentication
 
 When `API_KEYS` is set, every request to `/mcp` must include a valid key in the `Authorization` header:

@@ -160,6 +160,10 @@ Per-provider rate limits in requests per minute. These are self-imposed limits t
 | `ANALYTICS_ENABLED` | boolean | `true` | Enable the in-memory analytics collector and structured log emission |
 | `ANALYTICS_INTERVAL_MS` | number | `60000` | Interval in milliseconds between periodic metrics log flushes (minimum: 1000) |
 
+:::danger
+Never commit API keys or secrets to source control. Use environment variables, `.env` files (added to `.gitignore`), or a secrets manager like `fly secrets set` for production deployments.
+:::
+
 ## Example `.env` File
 
 ```bash

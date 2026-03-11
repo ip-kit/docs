@@ -197,6 +197,8 @@ The cursor is an opaque token -- pass it exactly as received. Pagination cursors
 - **When no results are found**, the response includes a `suggestion` field with actionable next steps (e.g., try fuzzy search, check number format).
 - Results are cached server-side to speed up repeated queries. Cache duration is reduced for partial results (when some jurisdictions return errors).
 
+Once you have identified potential conflicts, run a full [Trademark Clearance](/guides/trademark-clearance/) analysis to assess risk levels and get filing recommendations.
+
 ## Related tools
 
 - [`trademark_status`](/reference/tools/trademark/trademark-status/) -- get full details for a specific trademark

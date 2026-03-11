@@ -1,9 +1,9 @@
 ---
 title: Patent Search
-description: How to search patents in Australia and Europe using IPKit, including patent families, IPC/CPC classification, CQL syntax, and prior art strategies.
+description: How to search patents across Australia, Europe, and 100+ jurisdictions using IPKit, including Lens.org scholarly linkage, patent families, IPC/CPC classification, and prior art strategies.
 ---
 
-IPKit provides patent search across two systems: Australian patents via IP Australia and European/worldwide patents via the EPO Open Patent Services (OPS). The EPO collection alone contains over 130 million patent documents.
+IPKit provides patent search across three systems: Australian patents via IP Australia, European/worldwide patents via the EPO Open Patent Services (OPS), and global patent and scholarly literature via Lens.org. Together these cover 130+ million patent documents with unique scholarly-patent citation linkage.
 
 ## AU patent search
 
@@ -91,6 +91,10 @@ AU patent search returns up to 50 results per page. Use the cursor for paginatio
 The `ep_patent_search` tool queries the EPO Open Patent Services, which covers 130+ million patent documents from the Espacenet collection worldwide.
 
 ### CQL query syntax
+
+:::note
+EPO's CQL syntax differs from standard SQL or Lucene queries. Field prefixes use `=` (not `:`) and boolean operators must be uppercase (`AND`, `OR`, `NOT`).
+:::
 
 EPO uses CQL (Common Query Language) for field-specific searching:
 
@@ -230,6 +234,63 @@ Response:
 
 Use EPODOC format for the publication number (e.g., "EP1234567A1", "US7654321B2"). If you do not know the number, use `ep_patent_search` first to find it.
 
+## Lens.org patent search
+
+The `lens_patent_search` tool queries Lens.org's patent collection, which covers 100+ jurisdictions and uniquely links patents to scholarly literature.
+
+:::tip
+Lens.org is the only IPKit provider that connects patents to academic citations. Use it when you need to trace the research behind an invention or find scholarly prior art that patent-only databases miss.
+:::
+
+### When to use Lens vs EPO
+
+| Use case | Best provider |
+|----------|--------------|
+| European patent search with CQL syntax | EPO (`ep_patent_search`) |
+| Australian patent lookup | IP Australia (`au_patent_search`) |
+| Global search across 100+ jurisdictions | Lens.org (`lens_patent_search`) |
+| Scholarly-patent citation analysis | Lens.org (`lens_prior_art`) |
+| Patent family members via INPADOC | EPO (`patent_family_search`) |
+
+### Basic keyword search
+
+```json
+{
+  "query": "CRISPR gene editing therapeutic",
+  "limit": 20
+}
+```
+
+You can also filter by jurisdiction, date range, applicant, and classification codes. See the [`lens_patent_search` reference](/reference/tools/patent/lens-patent-search/) for all parameters.
+
+### Getting patent details
+
+Use `lens_patent_status` for full details on a Lens patent, including citations, legal status, and linked scholarly works:
+
+```json
+{
+  "lensId": "024-685-197-851-697"
+}
+```
+
+## Prior art with scholarly linkage
+
+The `lens_prior_art` tool is unique to Lens.org — it finds scholarly publications that cite or are cited by a patent, bridging the gap between patent literature and academic research.
+
+This is valuable for:
+
+- **Freedom-to-operate analysis** -- find academic papers that predate a patent's priority date
+- **Invalidity searches** -- locate prior art in scholarly literature that patent databases miss
+- **Technology landscape mapping** -- understand the research foundation behind a patent portfolio
+
+```json
+{
+  "lensId": "024-685-197-851-697"
+}
+```
+
+The response includes both patent-to-scholarly and scholarly-to-patent citation links, with metadata for each cited work.
+
 ## IPC and CPC classification
 
 Patents use two classification systems:
@@ -294,11 +355,16 @@ When searching for prior art (existing patents relevant to an invention):
 
 5. **Get full details** for the most relevant patents using `au_patent_status` or `ep_patent_status` to review claims, priority dates, and related patents.
 
-6. **Cross-reference with designs** using `au_design_search` if any patents relate to product appearance.
+6. **Search scholarly literature** using `lens_prior_art` to find academic papers that cite or predate the patent -- this catches prior art that patent-only databases miss.
+
+7. **Cross-reference with designs** using `au_design_search` if any patents relate to product appearance.
 
 ## Related tools
 
 - [`au_patent_status`](/reference/tools/patent/au-patent-status/) -- full details for an AU patent
 - [`ep_patent_status`](/reference/tools/patent/ep-patent-status/) -- full details for an EP patent
 - [`patent_family_search`](/reference/tools/patent/patent-family-search/) -- find worldwide family members
+- [`lens_patent_search`](/reference/tools/patent/lens-patent-search/) -- search 100+ jurisdictions via Lens.org
+- [`lens_patent_status`](/reference/tools/patent/lens-patent-status/) -- full details for a Lens patent
+- [`lens_prior_art`](/reference/tools/patent/lens-prior-art/) -- scholarly-patent citation analysis
 - [`au_design_search`](/reference/tools/design/au-design-search/) -- cross-reference with design registrations

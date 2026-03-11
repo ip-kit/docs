@@ -236,6 +236,8 @@ For EU designs, use `eu_person_lookup` to get detailed information about applica
 
 Use `eu_applicant_portfolio` to see all IP filings (trademarks and designs) by a specific EUIPO applicant.
 
+For utility patents related to the same product, see the [Patent Search](/guides/patent-search/) guide.
+
 ## Related tools
 
 - [`eu_design_status`](/reference/tools/design/eu-design-status/) -- full details for an EU design

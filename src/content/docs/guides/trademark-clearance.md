@@ -192,12 +192,18 @@ For streaming UIs or large conflict sets, set `compact: true` to receive only th
 }
 ```
 
+:::caution
+Clearance results are informational and do not constitute legal advice. Always consult a qualified trademark attorney before filing an application, especially for medium or higher risk results.
+:::
+
 ## Limitations
 
 - **API-level search is substring-based**, not true fuzzy. The EUIPO API matches `verbalElement=="*QUERY*"` -- it cannot find marks where the query is a misspelling rather than a substring. The famous marks pre-check and truncated stem search mitigate this, but some edge cases may be missed.
 - **Single-character and two-character marks** have limited search coverage. Manual review of the trademark register is recommended.
 - **Common law marks** (unregistered marks with rights through use) are not covered. Only marks in official registry databases are searched.
 - **Image/logo similarity** is not supported. The tool analyzes word marks only.
+
+After clearance, prepare your application with the [Filing Readiness](/guides/filing-readiness/) guide to draft goods and services specifications and validate terms.
 
 ## Related tools
 
