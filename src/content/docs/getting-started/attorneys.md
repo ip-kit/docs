@@ -9,11 +9,7 @@ This guide walks through a complete clearance workflow suitable for professional
 
 ## Installation
 
-### Hosted Mode (Recommended Start)
-
-The fastest way to start is using IPKit's hosted server. No credentials or local setup required.
-
-Add to your Claude Desktop configuration:
+Add IPKit to your Claude Desktop configuration:
 
 **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
 **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
@@ -34,32 +30,6 @@ Add to your Claude Desktop configuration:
 ```
 
 Restart Claude Desktop after saving.
-
-### Local Mode (Full Control)
-
-For higher rate limits and direct control over provider credentials, run IPKit locally. This requires API credentials from the trademark offices you want to search.
-
-```json
-{
-  "mcpServers": {
-    "ipkit": {
-      "command": "node",
-      "args": ["/path/to/core/dist/index.js"],
-      "env": {
-        "USPTO_API_KEY": "your_key",
-        "EUIPO_CLIENT_ID": "your_id",
-        "EUIPO_CLIENT_SECRET": "your_secret",
-        "IPAUSTRALIA_CLIENT_ID": "your_id",
-        "IPAUSTRALIA_CLIENT_SECRET": "your_secret",
-        "EPO_CONSUMER_KEY": "your_key",
-        "EPO_CONSUMER_SECRET": "your_secret"
-      }
-    }
-  }
-}
-```
-
-See the [Configuration Reference](/reference/configuration/) for all available environment variables and how to obtain credentials from each office.
 
 ## Phase 1: Nice Class Selection
 

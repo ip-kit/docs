@@ -30,7 +30,6 @@ export default defineConfig({
 					items: [
 						{ label: 'For Founders', slug: 'getting-started/founders' },
 						{ label: 'For IP Attorneys', slug: 'getting-started/attorneys' },
-						{ label: 'For Developers', slug: 'getting-started/developers' },
 						{ label: 'For Platform Integrators', slug: 'getting-started/integrators' },
 					],
 				},
@@ -84,22 +83,10 @@ export default defineConfig({
 					label: 'Reference',
 					items: [
 						{ label: 'Providers', slug: 'reference/providers' },
-						{ label: 'Configuration', slug: 'reference/configuration' },
 						{ label: 'Error Codes', slug: 'reference/error-codes' },
-						{ label: 'Schemas', slug: 'reference/schemas' },
 					],
 				},
-				{
-					label: 'Architecture',
-					collapsed: true,
-					items: [
-						{ label: 'Overview', slug: 'architecture/overview' },
-						{ label: 'Adding a Provider', slug: 'architecture/adding-a-provider' },
-						{ label: 'Transport Layer', slug: 'architecture/transport' },
-						{ label: 'Analytics & Observability', slug: 'architecture/analytics' },
-					],
-				},
-			],
+				],
 		}),
 	],
 });
