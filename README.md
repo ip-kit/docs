@@ -1,6 +1,6 @@
 # IPKit Documentation
 
-Documentation site for [IPKit](https://github.com/ip-kit/core) — global IP intelligence for trademarks, designs, and patents.
+Documentation site for IPKit — global IP intelligence for trademarks, designs, and patents.
 
 **Live site:** [docs.ipkit.ai](https://docs.ipkit.ai)
 
@@ -31,12 +31,8 @@ src/content/docs/
 │   ├── configuration.md # Environment variables reference
 │   ├── error-codes.md  # Error code reference
 │   └── schemas.md      # Data type reference
-└── architecture/       # System design and contributor guides
+└── architecture/       # System design docs
 ```
-
-## Contributing
-
-Content is written in Markdown (`.md`) or MDX (`.mdx`) in `src/content/docs/`. The directory structure maps directly to URL paths. See the [Astro docs](https://docs.astro.build/) and [Starlight docs](https://starlight.astro.build/) for framework reference.
 
 ## License
 

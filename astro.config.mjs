@@ -7,8 +7,19 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'IPKit',
-			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/ip-kit/core' },
+			logo: {
+				src: './public/favicon.svg',
+				alt: 'IPKit',
+			},
+			head: [
+				{
+					tag: 'meta',
+					attrs: { property: 'og:image', content: 'https://docs.ipkit.ai/og-image.png' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:url', content: 'https://docs.ipkit.ai' },
+				},
 			],
 			customCss: ['./src/styles/custom.css'],
 			sidebar: [

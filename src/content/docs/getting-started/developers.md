@@ -1,9 +1,9 @@
 ---
 title: "IPKit as Your Data Layer"
-description: "Technical guide for developers building on IPKit — architecture, local setup, HTTP transport, and extension points."
+description: "Technical guide for developers building on IPKit — architecture, HTTP transport, and API reference."
 ---
 
-IPKit is an MCP (Model Context Protocol) server that normalizes intellectual property data from 10 trademark, design, and patent offices into a consistent schema. You can use it as a data layer for legal tech products, integrate it into AI agent workflows, or extend it with new jurisdictions.
+IPKit is an MCP (Model Context Protocol) server that normalizes intellectual property data from 10 trademark, design, and patent offices into a consistent schema. You can use it as a data layer for legal tech products or integrate it into AI agent workflows.
 
 ## Architecture Overview
 
@@ -36,43 +36,6 @@ Key design decisions:
 - **Three-state singletons:** Provider services use `undefined` (unchecked) / `null` (not configured) / instance (ready). Tools check for `null` and return a clear configuration error.
 - **Schema normalization:** Raw API responses are transformed into Zod-validated schemas (`TrademarkSummary`, `TrademarkDetail`, `DesignSummary`, `PatentSummary`, etc.). Consumers always get a consistent shape regardless of source jurisdiction.
 - **Transport agnostic:** The same server instance runs over stdio (Claude Desktop), HTTP (programmatic access), or SSE (ChatGPT).
-
-## Local Installation
-
-Clone the repository and build:
-
-```bash
-git clone https://github.com/ip-kit/core.git
-cd core
-npm install
-npm run build    # Produces dist/index.js (~1.6 MB self-contained ESM bundle)
-```
-
-The built `dist/index.js` runs anywhere Node 20+ exists, with no `node_modules` required.
-
-### Claude Desktop Configuration (Local Mode)
-
-```json
-{
-  "mcpServers": {
-    "ipkit": {
-      "command": "node",
-      "args": ["/path/to/core/dist/index.js"],
-      "env": {
-        "USPTO_API_KEY": "your_key",
-        "EUIPO_CLIENT_ID": "your_id",
-        "EUIPO_CLIENT_SECRET": "your_secret",
-        "IPAUSTRALIA_CLIENT_ID": "your_id",
-        "IPAUSTRALIA_CLIENT_SECRET": "your_secret",
-        "EPO_CONSUMER_KEY": "your_key",
-        "EPO_CONSUMER_SECRET": "your_secret"
-      }
-    }
-  }
-}
-```
-
-IPKit starts with whatever providers have valid credentials. Missing credentials disable that provider gracefully -- tools return a clear error message rather than crashing.
 
 ## Environment Variables
 
@@ -265,47 +228,5 @@ When a rate limit is hit, requests queue and wait rather than failing. The `with
 ### OAuth Token Management
 
 EUIPO, IP Australia, and EPO use OAuth2 client-credentials flow. Tokens are cached by provider and automatically refreshed on expiry. In HTTP mode, OAuth tokens are pre-warmed at server startup to reduce first-request latency.
-
-## Building on IPKit
-
-### Adding a New Provider
-
-IPKit is designed to be extended with additional jurisdictions. Each provider needs:
-
-1. `types.ts` -- Native API response types
-2. `client.ts` -- `TrademarkProvider` implementation with `search()`, `getDetails()`, `getStatus()`
-3. `transformer.ts` -- Normalize API responses to IPKit schemas
-4. Registration in `src/providers/index.ts` and `src/schemas/common.ts`
-
-See [Adding a Provider](/architecture/adding-a-provider/) for the full walkthrough with code examples.
-
-### Project Structure
-
-```
-src/
-├── index.ts              # Entry point, transport selection
-├── server.ts             # MCP server, tool registration
-├── config.ts             # Environment config (Zod-validated)
-├── providers/            # One directory per jurisdiction
-├── schemas/              # Zod schemas (trademark, design, patent)
-├── tools/                # Tool implementations (one file per tool)
-├── transport/            # stdio and HTTP transports
-├── cache/                # Memory and file cache
-├── analytics/            # In-memory metrics collection
-├── keys/                 # API key store, quotas, rate limiting
-├── errors/               # TrademarkError, ErrorCode enum
-└── utils/                # Rate limiter, retry, similarity, phonetics
-```
-
-### Development Commands
-
-```bash
-npm run build        # Build self-contained bundle (dist/index.js)
-npm run typecheck    # TypeScript type checking
-npm test             # Run vitest tests
-npm run ci           # Full CI pipeline (typecheck + lint + test + build)
-npm run dev          # Dev mode (stdio transport via tsx)
-npm run dev:chatgpt  # Dev mode (HTTP/ChatGPT transport)
-```
 
 For more on the architecture, see [Architecture Overview](/architecture/overview/) and [Transport Layer](/architecture/transport/).
